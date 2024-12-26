@@ -25,6 +25,7 @@ struct ParkSignal {
     current_thread: Thread,
 }
 
+#[allow(dead_code)]
 impl ParkSignal {
     fn new() -> Self {
         Self {

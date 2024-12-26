@@ -74,6 +74,7 @@ impl<'sto> SendableFrame<'sto> {
         self.inner.set_state(FrameState::Sent);
     }
 
+    #[allow(dead_code)]
     pub(crate) fn index(&self) -> u8 {
         self.inner.frame_index()
     }
