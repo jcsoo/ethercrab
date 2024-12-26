@@ -547,7 +547,10 @@ where
 
     /// Send a mailbox request, wait for response mailbox to be ready, read response from mailbox
     /// and return as a slice.
-    async fn send_coe_service<R>(&'maindevice self, request: R) -> Result<(R, ReceivedPdu), Error>
+    async fn send_coe_service<R>(
+        &'maindevice self,
+        request: R,
+    ) -> Result<(R, ReceivedPdu<'maindevice>), Error>
     where
         R: CoeServiceRequest + Debug,
     {
