@@ -39,7 +39,7 @@ impl<'subdevice> EepromDataProvider for DeviceEeprom<'subdevice> {
         start_word: u16,
     ) -> Result<impl core::ops::Deref<Target = [u8]>, Error> {
         Command::fpwr(self.configured_address, RegisterAddress::SiiControl.into())
-            .send_receive(self.maindevice, SiiRequest::read(start_word))
+            .send_receive::<SiiControl>(self.maindevice, SiiRequest::read(start_word))
             .await?;
 
         let status = async {
